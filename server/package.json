@@ -16,5 +16,8 @@
     "pg": "^8.13.1",
     "sequelize": "^6.37.5",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
