@@ -27,5 +27,8 @@ module.exports = (sequelize, DataTypes) => {
       modelName: 'User',
     }
   );
+  User.afterUpdate(async (user) => {
+    await sequelize.models.Candidate.increment({ totalVote }, { where: { id: user.CandidateId } });
+  });
   return User;
 };
