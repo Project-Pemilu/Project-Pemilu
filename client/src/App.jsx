@@ -1,10 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
+import Navbar from "./components/Navbar";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <div>Hello world!</div>,
+		element: <Navbar/>,
 	},
 	{
 		path: "/login",
