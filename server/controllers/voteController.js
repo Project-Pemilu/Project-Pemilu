@@ -18,16 +18,16 @@ exports.patchVote = async (req, res, next) => {
   try {
     const user = await User.findByPk(id);
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      throw ({name: "NotFound", message: "User not Found"})
     }
 
     if (user.CandidateId) {
-      return res.status(400).json({ message: "User has already voted" });
+        throw ({name: "BadRequest", message: "User has Already Voted"})
     }
 
     const candidate = await Candidate.findByPk(CandidateId);
     if (!candidate) {
-      return res.status(404).json({ message: "Candidate not found" });
+        throw ({name: "NotFound", message: "Candidate Not Found"})
     }
 
     user.CandidateId = CandidateId;
@@ -37,8 +37,6 @@ exports.patchVote = async (req, res, next) => {
 
     return res.status(200).json({
       message: "Vote successfully cast",
-      user,
-      candidate,
     });
   } catch (error) {
     console.log(error, "<<<<error patchVote");
