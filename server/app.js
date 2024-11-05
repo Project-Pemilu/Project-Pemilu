@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 
 const UserController = require('./controllers/UserController');
-const errorHandler = require('./middlesware/errorHandler');
+const errorHandler = require('./middlewares/errorHandler');
 
 
 app.use(express.json()); // for parsing application/json
