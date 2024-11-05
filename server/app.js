@@ -2,6 +2,7 @@ const express = require('express');
 const { createServer } = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
+const { getCandidates, patchVote } = require('./controllers/voteController');
 
 const app = express();
 
@@ -17,8 +18,13 @@ const io = new Server(httpServer, {
   },
 });
 
+app.get('/candidates', getCandidates);
+app.patch('/users/:id', patchVote);
+
 io.on('connection', (socket) => {
   // ...
 });
+
+
 
 module.exports = httpServer;
