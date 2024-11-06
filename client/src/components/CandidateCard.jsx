@@ -1,1 +1,65 @@
-export default function CandidateCard() {}
+import { useNavigate } from "react-router-dom";
+import axiosClient from "../utils/axiosClient";
+import socket from "../utils/socket";
+import Swal from "sweetalert2";
+
+export default function CandidateCard({ candidate }) {
+  const { name, totalVote, imgUrl, motto } = candidate;
+  const navigate = useNavigate();
+
+  const handlePilih = async () => {
+    try {
+      const {data} = await axiosClient.patch(`/users/${localStorage.getItem("user_id")}`, {
+        CandidateId: candidate.id,
+      });
+
+      socket.emit("incomingVote", "new vote created");
+      navigate("/")
+      Swal.fire(data.message)
+    } catch (error) {
+      console.log("🚀 ~ handlePilih ~ error:", error);
+      Swal.fire(error.response.data.message)
+    }
+  };
+
+  return (
+    <div className="group flex flex-col items-center">
+      <div className="relative w-full max-w-xs aspect-w-1 aspect-h-1">
+        {" "}
+        <img
+          src={imgUrl}
+          alt={name}
+          width="100%"
+          height="100%"
+          className="w-full h-full object-center object-cover opacity-90 group-hover:opacity-100 rounded-md"
+        />
+      </div>
+
+      <div className="w-full max-w-xs px-4 py-4 flex flex-col items-center bg-gray-800 rounded-md mt-6">
+        {" "}
+        {/* Jarak lebih besar dari gambar */}
+        <p className="text-xl text-white uppercase text-center font-bold">
+          {name}
+        </p>
+        <p className="text-sm text-gray-300 text-center mt-2">
+          {" "}
+          {/* Ukuran motto disamakan dan diberi jarak */}
+          {motto}
+        </p>
+        <p className="text-md text-gray-300 text-center mt-1">
+          {" "}
+          {/* Jarak lebih kecil */}
+          {totalVote} Votes
+        </p>
+      </div>
+
+      <div className="flex justify-center items-center h-16 mt-4">
+        <button 
+        onClick={handlePilih}
+        className="px-3 py-2 text-gray-900 bg-gray-100 rounded-sm focus:outline-none focus:ring focus:ring-gray-500 uppercase tracking-widest font-bold">
+          Pilih
+        </button>
+      </div>
+    </div>
+  );
+}
