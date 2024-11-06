@@ -10,19 +10,19 @@ export default function LoginPage() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-    try {
-      const { data } = await axiosClient.post('login', {
-        username,
-      });
-      // localStorage.setItem("user", JSON.stringify(data));
-      localStorage.setItem('user_id', data.id);
-      Swal.fire(`Login successful`);
-      navigate('/');
-    } catch (error) {
-      console.error(error);
-      Swal.fire(error.response.data.message);
-    }
-  };
+		try {
+			const { data } = await axiosClient.post("login", {
+				username,
+			});
+			// localStorage.setItem("user", JSON.stringify(data));
+			localStorage.setItem("user_id", data.id);
+			Swal.fire(`Login successful`);
+			navigate("/");
+		} catch (error) {
+			console.error(error);
+			Swal.fire(error.response.data.message);
+		}
+	};
 
 	return (
 		<>
