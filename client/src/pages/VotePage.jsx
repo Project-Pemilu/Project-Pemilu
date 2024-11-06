@@ -34,7 +34,7 @@ export default function VotePage() {
         <span className="block">Choose your Candidate</span>
       </h2>
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-2 justify-items-center">
-        {candidate.length > 0 ? candidate.map((candidate, i) => <CandidateCard key={i} candidate={candidate} />) : <p className="text-center">No candidate found</p>}
+        {candidate.length > 0 ? candidate.map((candidate, i) => <CandidateCard key={i} candidate={candidate} i={i} />) : <p className="text-center">No candidate found</p>}
       </div>
     </div>
   );

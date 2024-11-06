@@ -9,6 +9,8 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import VotePage from "./pages/VotePage";
 import { ThemeProvider } from "./context/ThemeContext";
+import { LanguageProvider } from "./context/LanguageContext";
+
 
 const router = createBrowserRouter([
 	{
@@ -57,9 +59,11 @@ function App() {
 
 	return (
 		<div style={{ minHeight: "100vh" }}>
+			<LanguageProvider>
 			<ThemeProvider>
 				<RouterProvider router={router} />
 			</ThemeProvider>
+			</LanguageProvider>
 		</div>
 	);
 }
