@@ -20,7 +20,7 @@ export default function LoginPage() {
       navigate('/');
     } catch (error) {
       console.error(error);
-      Swal.fire(`Login failed \n Try again`);
+      Swal.fire(error.response.data.message);
     }
   };
 
