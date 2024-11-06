@@ -3,7 +3,9 @@ const { User } = require('../models');
 
 exports.getCandidates = async (req, res, next) => {
   try {
-    let candidates = await Candidate.findAll();
+    let candidates = await Candidate.findAll({
+      order: [['id', 'ASC']],
+    });
     res.status(200).json(candidates);
   } catch (error) {
     console.log(error, '<<<<error getCandidates');

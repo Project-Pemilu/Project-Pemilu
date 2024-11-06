@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import axiosClient from "../utils/axiosClient";
-import socket from "../utils/socket";
-import Swal from "sweetalert2";
+/* eslint-disable react/prop-types */
+import { useNavigate } from 'react-router-dom';
+import axiosClient from '../utils/axiosClient';
+import socket from '../utils/socket';
+import Swal from 'sweetalert2';
 
 export default function CandidateCard({ candidate }) {
   const { name, totalVote, imgUrl, motto } = candidate;
