@@ -29,8 +29,6 @@ export default function VotePage() {
       <h2 className="text-4xl tracking-widest text-white text-center uppercase font-bold">
         <span className="block">Choose your Candidate</span>
       </h2>
-
-      {/* Grid responsif dan item terpusat */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 justify-items-center">
         {candidate.length > 0 ? (
           candidate.map((candidate, i) => (
