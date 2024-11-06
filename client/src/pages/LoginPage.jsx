@@ -10,27 +10,30 @@ export default function LoginPage() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		try {
-			const { data } = await axiosClient.post("login", {
-				username,
-			});
-			// localStorage.setItem("user", JSON.stringify(data));
-			localStorage.setItem("user_id", data.id);
-			Swal.fire(`Login successful`);
-			navigate("/");
-		} catch (error) {
-			console.error(error);
-			Swal.fire(`Login failed \n Try again`);
-		}
-	};
+    try {
+      const { data } = await axiosClient.post('login', {
+        username,
+      });
+      // localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem('user_id', data.id);
+      Swal.fire(`Login successful`);
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+      Swal.fire(error.response.data.message);
+    }
+  };
 
 	return (
 		<>
-			<div
-				className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 h-screen w-screen border-2">
+			<div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 				<div className="sm:mx-auto sm:w-full sm:max-w-sm">
-					<img className="mx-auto h-10 w-auto" src="#" alt="Hacktiv-pemilu" />
-					<h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight">
+					<img
+						className="mx-auto h-40 w-auto"
+						src="vote.png"
+						alt="Hacktiv-voting"
+					/>
+					<h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
 						Sign in
 					</h2>
 				</div>
@@ -41,7 +44,9 @@ export default function LoginPage() {
 						method="POST"
 						onSubmit={handleSubmit}>
 						<div>
-							<label htmlFor="username" className="block text-sm/6 font-medium">
+							<label
+								htmlFor="username"
+								className="block text-sm/6 font-medium text-gray-900">
 								Username:
 							</label>
 							<div className="mt-2">
@@ -52,7 +57,7 @@ export default function LoginPage() {
 									value={username}
 									required=""
 									onChange={(e) => setUsername(e.target.value)}
-									className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+									className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
 								/>
 							</div>
 						</div>

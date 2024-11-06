@@ -3,27 +3,21 @@ import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 export default function Navbar() {
-	const navigate = useNavigate();
-	const theme = useContext(ThemeContext);
-
-	const handleLogout = () => {
-		localStorage.removeItem("user_id");
-		navigate("/login");
-	};
-
-	// const handleThemeToggle = () => {
-	//   const newTheme = currentTheme === "light" ? "dark" : "light";
-	//   setCurrentTheme(newTheme);
-	// };
-
-	return (
+  const navigate = useNavigate();
+  const theme = useContext(ThemeContext);
+  const handleLogout = () => {
+    // localStorage.removeItem("user");
+    localStorage.removeItem('user_id');
+    navigate('/login');
+  };
+  return (
 		<nav className="border-b shadow-lg">
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 				<div className="flex">
 					<Link
 						to="/"
 						className="flex items-center space-x-3 rtl:space-x-reverse">
-						<img src="#" className="h-8" alt="Hacktiv-pemilu" />
+						<img src="vote.png" className="h-8" alt="Hacktiv-pemilu" />
 						<span className="self-center text-2xl font-semibold whitespace-nowrap">
 							Hacktiv Pemilu
 						</span>
