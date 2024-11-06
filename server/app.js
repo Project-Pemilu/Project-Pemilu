@@ -21,7 +21,10 @@ const io = new Server(httpServer, {
 });
 
 io.on('connection', (socket) => {
-  // ...
+  socket.on('incomingVote', (arg) => {
+    console.log(arg);
+    io.emit('notify:incomingVote', 'new vote received');
+  });
 });
 
 app.get('/candidates', getCandidates);
