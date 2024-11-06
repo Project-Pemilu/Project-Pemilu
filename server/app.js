@@ -3,13 +3,10 @@ const { createServer } = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
 const { getCandidates, patchVote } = require('./controllers/voteController');
-
-
-const app = express();
-
 const UserController = require('./controllers/UserController');
 const errorHandler = require('./middlewares/errorHandler');
 
+const app = express();
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -23,16 +20,14 @@ const io = new Server(httpServer, {
   },
 });
 
-app.get('/candidates', getCandidates);
-app.patch('/users/:id', patchVote);
-
 io.on('connection', (socket) => {
   // ...
 });
 
+app.get('/candidates', getCandidates);
+app.patch('/users/:id', patchVote);
+app.post('/login', UserController.login);
 
-app.post('/login', UserController.login)
-
-app.use(errorHandler)
+app.use(errorHandler);
 
 module.exports = httpServer;
