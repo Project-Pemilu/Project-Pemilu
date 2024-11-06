@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, redirect, RouterProvider } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
@@ -8,6 +8,12 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+    loader: () => {
+      if (localStorage.getItem('user_id')) {
+        return redirect('/');
+      }
+      return null;
+    },
   },
   {
     element: (
@@ -16,6 +22,12 @@ const router = createBrowserRouter([
         <Outlet />
       </>
     ),
+    loader: () => {
+      if (!localStorage.getItem('user_id')) {
+        return redirect('/login');
+      }
+      return null;
+    },
     children: [
       {
         path: '/',

@@ -42,7 +42,7 @@ export default function HomePage() {
               <p>No. Urut: {candidate.id}</p>
               <h2 className="card-title">{candidate.name}</h2>
               <p>{candidate.motto}</p>
-              <p>Total Vote: {candidate.totalVote}</p>
+              <p className="badge badge-secondary">Total Vote: {candidate.totalVote}</p>
             </div>
           </div>
         );
