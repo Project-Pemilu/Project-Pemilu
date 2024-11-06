@@ -3,17 +3,24 @@ import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 export default function Navbar() {
-  const navigate = useNavigate();
-  const theme = useContext(ThemeContext);
-  const handleLogout = () => {
-    // localStorage.removeItem("user");
-    localStorage.removeItem('user_id');
-    navigate('/login');
-  };
-  return (
-		<nav className="border-b shadow-lg">
+	const navigate = useNavigate();
+	const theme = useContext(ThemeContext);
+	const handleLogout = () => {
+		// localStorage.removeItem("user");
+		localStorage.removeItem("user_id");
+		navigate("/login");
+	};
+	return (
+		<nav
+			className="border-2 shadow-lg"
+			style={{
+				backgroundColor: theme.data[theme.currentTheme].cardBox,
+				border: theme.data[theme.currentTheme].buttonBorder,
+			}}>
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-				<div className="flex">
+				<div
+					className="flex"
+					style={{ color: theme.data[theme.currentTheme].cardText }}>
 					<Link
 						to="/"
 						className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -29,9 +36,14 @@ export default function Navbar() {
 					</Link>
 				</div>
 				<div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-4">
-        <select
+					<select
+						style={{
+							backgroundColor: theme.data[theme.currentTheme].backgroundColor,
+							color: theme.data[theme.currentTheme].fontColor,
+						}}
 						value={theme.currentTheme}
-						onChange={(e) => theme.setCurrentTheme(e.target.value)}>
+						onChange={(e) => theme.setCurrentTheme(e.target.value)}
+						className="font-medium rounded-lg text-sm px-4 py-2">
 						<option value="light">Light</option>
 						<option value="dark">Dark</option>
 					</select>

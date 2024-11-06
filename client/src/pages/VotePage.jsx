@@ -30,10 +30,10 @@ export default function VotePage() {
     <div className="min-h-screen mx-auto py-5" 
     style={{backgroundColor: theme.data[theme.currentTheme].backgroundColor}}
     >
-      <h2 className="text-4xl tracking-widest text-center uppercase font-bold" style={{color: theme.data[theme.currentTheme].fontColor}}>
+      <h2 className="text-4xl tracking-widest text-center uppercase font-bold my-2" style={{color: theme.data[theme.currentTheme].fontColor}}>
         <span className="block">Choose your Candidate</span>
       </h2>
-      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap- 2 justify-items-center">
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-2 justify-items-center">
         {candidate.length > 0 ? candidate.map((candidate, i) => <CandidateCard key={i} candidate={candidate} />) : <p className="text-center">No candidate found</p>}
       </div>
     </div>

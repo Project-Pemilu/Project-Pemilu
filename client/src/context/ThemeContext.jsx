@@ -9,10 +9,21 @@ export const defaultValue = {
 		dark: {
 			backgroundColor: "#0B2447",
 			fontColor: "#D4F6FF",
+			cardBox: "#A5D7E8",
+			cardText: "#19376D",
+			buttonContainer: "#19376D",
+			buttonText: "#D4F6FF",
+			buttonBorder: "1px solid #D4F6FF",
+
 		},
 		light: {
 			backgroundColor: "#D4F6FF",
 			fontColor: "#0B2447",
+			cardBox: "#0B2447",
+			cardText: "#FBFBFB",
+			buttonContainer: "#D4F6FF",
+			buttonText: "#0B2447",
+			buttonBorder: "1px solid #0B2447",
 		},
 	},
 };

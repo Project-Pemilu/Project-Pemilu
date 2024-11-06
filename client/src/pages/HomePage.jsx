@@ -34,7 +34,7 @@ export default function HomePage() {
 
 	return (
 		<div className="min-h-screen" style={{backgroundColor: theme.data[theme.currentTheme].backgroundColor}}>
-			<h2 className="text-4xl tracking-widest text-white text-center uppercase font-bold py-5">
+			<h2 className="text-4xl tracking-widest text-white text-center uppercase font-bold py-5 " style={{color: theme.data[theme.currentTheme].fontColor}}>
 				<span className="block">Who will be the next leader?</span>
 			</h2>
 			<div className="flex flex-wrap justify-center gap-2">
@@ -50,14 +50,14 @@ export default function HomePage() {
 									className="w-full h-full object-center object-cover rounded-md opacity-90 group-hover:opacity-100"
 								/>
 							</div>
-							<div className="w-full max-w-xs h-40 px-4 py-8 flex flex-col items-center bg-gray-800 rounded-md mt-2">
-								<p className="text-xl text-white uppercase text-center font-bold">
+							<div className="w-full max-w-xs h-40 px-4 py-8 flex flex-col items-center bg-gray-800 rounded-md mt-2" style={{backgroundColor: theme.data[theme.currentTheme].cardBox}}>
+								<p className="text-xl uppercase text-center font-bold" style={{color: theme.data[theme.currentTheme].cardText}}>
 									{candidate.name}
 								</p>
-								<p className="text-sm text-gray-300 text-center my-2 h-24">
+								<p className="text-sm text-gray-300 text-center my-2 px-5 h-24" style={{color: theme.data[theme.currentTheme].cardText}}>
 									{candidate.motto}
 								</p>
-								<p className="text-md text-gray-300 text-center font-bold badge py-3">
+								<p className="text-md text-gray-300 text-center font-bold badge py-3" style={{backgroundColor: theme.data[theme.currentTheme].buttonContainer, color: theme.data[theme.currentTheme].fontColor}}>
 									Total Vote: {candidate.totalVote}
 								</p>
 							</div>
