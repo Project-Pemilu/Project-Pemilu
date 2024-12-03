@@ -1,4 +1,4 @@
-# Hacktiv Pemilu (Client Side)
+# Hacktiv Pemilu
 
 A real-time web-based application for voting in elections with ExpressJS server.
 
