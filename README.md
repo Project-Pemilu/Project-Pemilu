@@ -12,9 +12,9 @@ A real-time web-based application for voting in elections with ExpressJS server.
 
 ## Deployment
 
-Client: [https://gp-p2-h8.web.app](https://gp-p2-h8.web.app)
+**Client:** [https://gp-p2-h8.web.app](https://gp-p2-h8.web.app)
 
-Server: [https://fase2.fathanabds.online](https://fase2.fathanabds.online)
+**Server:** [https://fase2.fathanabds.online](https://fase2.fathanabds.online)
 
 ## Features
 
@@ -34,3 +34,9 @@ Install dependencies with npm
   cd server
   npm install
 ```
+
+## Tech Stack
+
+**Client:** React, TailwindCSS, Firebase
+
+**Server:** ExpressJS, PostgreSQL, Socket.IO, AWS EC2
